@@ -40,14 +40,14 @@ class Products extends Component {
 
 export default Products;
 
-Product.propTypes ={
+Products.propTypes ={
     product:PropTypes.shape({
         id:PropTypes.number,
         title:PropTypes.string,
         price:PropTypes.number,
         img:PropTypes.string,
         inCart:PropTypes.bool  
-    })
+    }).isRequired
 }
 
 const ProductWrapper =  styled.div`
