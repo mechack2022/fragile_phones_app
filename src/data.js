@@ -3,7 +3,7 @@ const ProductStore =[
         id:1,
         title:"Apple IPhone X",
         company:"Apple",
-        price:"314,000",
+        price:314000,
         img:"productImages/1.jpg",
         info:`"Screen: 5.8 OLED HD Retina Display
             Memory: 3GB RAM ,256GB ROM
@@ -19,7 +19,7 @@ const ProductStore =[
         id:2,
         title:"Apple IPhone 8Plus",
         company:"Apple",
-        price:"289,760",
+        price:289760,
         img:"/productImages/2.jpg",
         info:`5.5-inch (diagonal) widescreen LCD multi-touch display with IPS technology and Retina HD display
             12MP wide-angle and telephoto cameras, Optical image stabilization and Six‑element lens
@@ -34,7 +34,7 @@ const ProductStore =[
         id:3,
         title:"Infinix Note 5 (X604)",
         company:"Infinix",
-        price:"56,850",   
+        price:56850,   
         img:"productImages/3.jpg",
         info:` 6.0 Inch HD Display
             32 GB Storage, MicroSD up to 128 GB
@@ -52,7 +52,7 @@ const ProductStore =[
         id:4,
         title:"Infinix Hot 6x (X623)",
         company:"Infinix",
-        price:" 60,000",   
+        price:60000,   
         img:"productImages/4.jpg",
         info:` 
             Infinix
@@ -69,7 +69,7 @@ const ProductStore =[
         id:5,
         title:"Infinix Smart 2 (X5515)",
         company:"Infinix",
-        price:"60,000",   
+        price:45000,   
         img:"productImages/5.jpg",
         info:` 
             Display: 5.5 Inches HD+ (1440 x 720 pixels)
@@ -87,7 +87,7 @@ const ProductStore =[
         id:6,
         title:"Tecno spark 2 ",
         company:"Tecno",
-        price:"46,200",   
+        price:46200,   
         img:"../productImages/6.jpg",
         info:` Tecno Tecno Spark 2 (KA7),
              -16+1GB -Android 8.1 Go Edition -3500mAh 
@@ -101,7 +101,7 @@ const ProductStore =[
         id:7,
         title:"Tecno Camon 11 (CF7K)",
         company:"Teco",
-        price:"64,000",   
+        price:64000,   
         img:"../productImages/7.jpg",
         info:` Display: 6.2-Inch FHD
             CPU: Quad Core 1.5GHz
@@ -117,7 +117,7 @@ const ProductStore =[
         id:8,
         title:"Tecno CAMON X (CA7)",
         company:"Tecno",
-        price:"50,250",   
+        price:50250,   
         img:"productImages/8.jpg",
         info:` Tecno CAMON X (CA7) With 20mp Camera For Super Selfie 32GB ROM 
             + 3GB Ram Super Speeder Designed With Style That Suits You, 
@@ -131,7 +131,7 @@ const ProductStore =[
         id:9,
         title:"Gionee S8s Black,",
         company:"Gionee",
-        price:"45,500",   
+        price:45500,   
         img:"productImages/9.jpg",
         info:`Display Size : 5.86inches
             OS : Android 9.0 (Android Pie) 
@@ -160,7 +160,7 @@ const ProductStore =[
         title:"Samsung Galaxy S10 Plus",
         title:"Gionee S10 LITE",
         company:"Gionee",
-        price:"49,860",   
+        price:49860,   
         img:"productImages/10.jpg",
         info:` 5.2 Inch HD Screen, 1280*720 Pixel
             Qualcomm Snapdragon 427 1.4GHz Quad Core
@@ -177,7 +177,7 @@ const ProductStore =[
         id:11,
             title:"Samsung Galaxy S10 Plus",
             company:"Samsung",
-            price:"352,000",   
+            price:352000,   
             img:"productImages/11.jpg",
             info:` 6.4inches Dynamic AMOLED capacitive touchscreen, 16M colors
                 Android 9.0 (Pie); One UI
@@ -197,7 +197,7 @@ const ProductStore =[
                 id:12,
                 title:"Samsung Galaxy S8 Edge",
                 company:"Samsung",
-                price:"113,900",   
+                price:113900,   
                 img:"productImages/12.jpg",
                 info:` Hello my friend,welcome to our store， we wanna to become the first-rate service and quality seller in jumiaour store is
                 opening this week，so we decide to give everybody a big discount only this week
@@ -218,7 +218,7 @@ const ProductStore =[
     id:13,
     title:"Samsung Galaxy S10 Plus",
     company:"Samsung",
-    price:"352,000",   
+    price:352000,   
     img:"productImages/11.jpg",
     info:` 6.4inches Dynamic AMOLED capacitive touchscreen, 16M colors
         Android 9.0 (Pie); One UI
