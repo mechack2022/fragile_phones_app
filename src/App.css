@@ -27,3 +27,6 @@ body{
 .text-yellow{
     color:var(--mainYellow)
 }
+.main-white{
+    background:var(--mainWhite)
+}
