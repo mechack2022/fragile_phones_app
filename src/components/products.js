@@ -1,19 +1,103 @@
-import React, { Component } from 'react';
+import React, { Component , Fragment} from 'react';
+import PropTypes from 'prop-types'
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 import {ProductConsumer} from './contextApi'
+
 
 class Products extends Component {
     render() {
+        const {id, title,  company, price, img, info, inCart} = this.props.product
         return (
-            <div className="container">
-               <h2>love</h2>
-               <ProductConsumer>
-                   {value=>{
-                       return <h3>{value}</h3>
-                   }}
-               </ProductConsumer>
-            </div>
-        );
+           <Fragment>
+                <ProductWrapper className="col-9 col-md-6 col-lg-3 mx-auto my-3">
+                    <div className="card">
+                        <div className="img-container p-5"> 
+                            <Link to="./Details">
+                             <img src={img} height="100%" width="100%"
+                                alt="product"
+                                className="card-image-top"
+                                 />
+                            </Link> 
+                            {/* ternary button of incart and add to cart */}
+                            <button className="card-btn" disabled={inCart?true:false}
+                                    onClick={()=>console.log("cart added")}>
+                               {inCart? (<p className="mb-0 text-capitalize">{" "}incart</p>):
+                            (<p className="mb-0 text-capitalize">not in cart</p>)} 
+                            </button> 
+                        </div>
+                        {/* card image footer */}
+                        <div className="card-footer d-flex  justify-content-between">
+                                <p className="align-self-center mb-0">{title}</p>
+                                <h5 className="text-blue font-italic mb-0"><span>#</span>{price}</h5>
+                            </div>
+                    </div>
+                </ProductWrapper>
+            </Fragment>
+            );
     }
 }
 
 export default Products;
+
+Product.propTypes ={
+    product:PropTypes.shape({
+        id:PropTypes.number,
+        title:PropTypes.string,
+        price:PropTypes.number,
+        img:PropTypes.string,
+        inCart:PropTypes.bool  
+    })
+}
+
+const ProductWrapper =  styled.div`
+    .card{
+        border-color:transparent;
+        transition:all 1s linear;
+    }
+    .card-footer{
+        border-top:transparent;
+        background-color:transparent;
+    }
+    &:hover{
+        .card{
+            border-color: 0.04rem solid rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.2)
+        }
+        .card-footer{
+            background:rgba(247,247,247)
+        }
+    }
+    .img-container{
+        position:relative;
+        overflow:hidden
+    }
+    .card-image-top{
+        transition:all 1s linear;
+        
+    }
+    .img-container:hover .card-image-top{
+        transform:scale(1.2)
+    }
+    .card-btn{
+        position:absolute;
+        bottom:0;
+        right:0;
+        background:var(--lightBlue);
+        padding: 0.4rem 0.2rem;
+        font-size:1.4rem;
+        border-radius: 0.5rem 0 0 0;
+        color:var(--mainWhite);
+        transition:all 1s linear;
+        transform:translate(100%, 100%)
+
+    }
+    .img-container:hover .card-btn{
+        transform:translate(0, 0)
+        
+    }
+    .card-btn:hover{
+        color:var(--mainBlue);
+        cursor: pointer;
+    }
+`;
