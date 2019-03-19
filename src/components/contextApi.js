@@ -14,14 +14,13 @@ class ProductProvider extends Component {
     setProduct = () =>{
         let TempProducts = [];
         ProductStore.forEach( item =>{
-            const singleItem = {...item }
+            const singleItem = { ...item }
             TempProducts =[...TempProducts, singleItem]
         })
 
         this.setState({Products:TempProducts})
-
-
     }
+    
     // react life cycle method
     componentDidMount(){
         this.setProduct()
