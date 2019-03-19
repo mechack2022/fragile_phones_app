@@ -5,7 +5,6 @@ import Nav from './components/Nav';
 import {Switch, Route} from 'react-router-dom'
 import DefaultPage from './components/DefaultPage';
 import ProductList from './components/ProductList';
-import Products from './components/products';
 import Details from './components/Details';
 import Cart from './components/Cart'
 
