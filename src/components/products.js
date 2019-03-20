@@ -7,31 +7,38 @@ import {ProductConsumer} from './contextApi'
 
 class Products extends Component {
     render() {
-        const {id, title,  company, price, img, info, inCart} = this.props.product
+       
+        const {id, title, price, img, inCart} = this.props.product
         return (
            <Fragment>
                 <ProductWrapper className="col-9 col-md-6 col-lg-3 mx-auto my-3">
                     <div className="card">
-                        <div className="img-container p-5"> 
-                            <Link to="./Details">
-                             <img src={img} height="100%" width="100%"
-                                alt="product"
-                                className="card-image-top"
-                                 />
-                            </Link> 
-                            {/* ternary button of incart and add to cart */}
-                            <button className="card-btn" disabled={inCart?true:false}
-                                    onClick={()=>console.log("cart added")}>
-                               {inCart? (<p className="mb-0 text-capitalize">{" "}incart</p>):
-                            (<p className="mb-0 text-capitalize">not in cart</p>)} 
-                            </button> 
-                        </div>
+                        <ProductConsumer>
+                          {value=>(
+                            <div className="img-container p-5" 
+                                onClick={()=>value.handleProductDetails(id)}> 
+                                <Link to="./Details">
+                                    <img src={img} height="100%" width="100%"
+                                        alt="product"
+                                        className="card-image-top"
+                                        />
+                                </Link> 
+                                {/* ternary button of incart and add to cart */}
+                                <button className="card-btn" 
+                                        disabled={inCart?true:false}
+                                        onClick={()=>value.addCart(id)}>
+                                {inCart? (<p className="mb-0 text-capitalize">{" "}incart</p>):
+                                (<p className="mb-0 text-capitalize">not in cart</p>)} 
+                                </button> 
+                            </div>
+                          )}
+                        </ProductConsumer>
                         {/* card image footer */}
                         <div className="card-footer d-flex  justify-content-between">
                                 <p className="align-self-center mb-0">{title}</p>
                                 <h5 className="text-blue font-italic mb-0"><span>#</span>{price}</h5>
-                            </div>
-                    </div>
+                        </div> 
+                        </div> {/* end of card div */}
                 </ProductWrapper>
             </Fragment>
             );
