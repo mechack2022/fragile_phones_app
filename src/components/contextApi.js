@@ -7,7 +7,8 @@ class ProductProvider extends Component {
         super(props)
         this.state={
             Products:[],
-            ProductDetails:ProductDetails
+            ProductDetails:ProductDetails,
+            cart:[]
         }
     }
     // grab nested array of object to save the and set ot state origainal copy
@@ -17,28 +18,50 @@ class ProductProvider extends Component {
             const singleItem = { ...item }
             TempProducts =[...TempProducts, singleItem]
         })
-
         this.setState({Products:TempProducts})
-    }
-    
-    // react life cycle method
+    };
+    // life cycle method
     componentDidMount(){
-        this.setProduct()
+        this.setProduct();
     }
     
-    // add to cart function
-    addCart =() =>{
-
+    
+    // function that get id form product
+    getId = (id) =>{
+       const product = this.state.Products.find( item =>
+        item.id === id) 
+        return product;
     }
-    // handle product details
-    handleProductDetails = () =>{
-
+    // add to cart function
+    addCart =(id) =>{
+      const tempProducts =[...this.state.Products];
+      const productIndex= tempProducts.indexOf(this.getId(id));
+       const product = tempProducts[productIndex];
+       product.inCart = true;
+       product.count = 1;
+       const price= product.price;
+       product.price = price ;
+       this.setState(()=>{
+         return{
+             Products:tempProducts,
+             cart:[...this.state.cart, product]
+         }  
+       },()=>console.log(this.state))
+    }
+    
+    // handle product details and set 
+    //the current id to details component
+    handleProductDetails = (id) =>{
+        const product = this.getId(id);
+        this.setState(()=>{
+            return {ProductDetails:product}
+         } )
     }
     render() {
         return (
             <ProductContext.Provider 
                 value={{...this.state, 
-                         handleProductDeatils:this.handleProductDetails,
+                         handleProductDetails:this.handleProductDetails,
                          addCart:this.addCart}}>
                             {this.props.children}
             </ProductContext.Provider>     
