@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { ButtonContainer } from './Button';
 import {ProductConsumer} from './contextApi'
+import { Link } from 'react-router-dom';
 
 export default class Details extends Component {
   render() {
     return (
       <ProductConsumer>
       {value =>{ 
-        const { id, title, price, isCart, company, img, info } = value.ProductDetails 
+        const { id, title, price, inCart, company, img, info } = value.ProductDetails 
          return ( 
           <div className="container main-white py-5">
            {/* product title Details */}
@@ -24,15 +25,26 @@ export default class Details extends Component {
             </div>
             {/* end of image col */}
             <div className="col-10 col-md-6 my-3 mx-auto text-capitalize">
-              <h2>model:{company}</h2>
+              <h2>model:{title}</h2>
+              <h3 className="text-title text-capitalize">made by:{company}</h3>
               <h4 className="text-muted text-title mt-3 mb-2">price: 
-              <span className="mr-1">#</span>{price}</h4>
-              <p className="text-bold text-dark">info:{info}</p>
+              <span className="mr-1 text-blue">#</span>{price}</h4>
+              <h5>some info about the product:</h5>
+              <p className="text-muted lead">{info}</p>
               {/* end of product text details column */}
                   {/* buttons */}
               <div>
-                <ButtonContainer className="mr-2">To Product</ButtonContainer>
-                <ButtonContainer>To Cart</ButtonContainer>
+                <Link to="/">
+                  <ButtonContainer 
+                    className="mr-2"
+                    disabled={inCart?true:false}>
+                    Back to Product</ButtonContainer>
+                </Link>
+                <ButtonContainer 
+                 cartProp 
+                 onClick={()=> value.addCart(id)}>
+                 {inCart?"inCart":"Add to Cart"}
+                </ButtonContainer>
               </div>
               {/* end of buttons */}
             </div>  

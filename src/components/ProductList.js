@@ -18,9 +18,8 @@ export default class ProductList extends Component {
                             product={product}
                             />
                   })
-                }}
-                
-            </ProductConsumer>
+                }} 
+          </ProductConsumer>
         </div>
       </div>
      </Fragment>

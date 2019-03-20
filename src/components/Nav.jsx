@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-// import styled from 'styled-components';
-import { ButtonContainer, NavWrapper, StyleI } from './Button'
+import { ButtonContainer, NavWrapper } from './Button';
+import {ProductConsumer} from './contextApi';
 
 export default class Nav extends Component {
   render() {
