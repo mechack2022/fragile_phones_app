@@ -13,10 +13,10 @@ class PopupModal extends Component {
             {
                const { id, price, title, img } = value.modalPopupDetails;
                const {openModalPopup, closeModalPopup} = value;
-
                if(!openModalPopup){
                   return null
-               }else{
+                }
+                else{
                   return( 
                      <ModalPopupWrapper className="container">
                         <div className="row">
