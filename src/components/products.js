@@ -25,10 +25,14 @@ class Products extends Component {
                                 </Link> 
                                 {/* ternary button of incart and add to cart */}
                                 <button className="card-btn" 
-                                        disabled={inCart?true:false}
-                                        onClick={()=>value.addCart(id)}>
-                                {inCart? (<p className="mb-0 text-capitalize">{" "}incart</p>):
-                                (<p className="mb-0 text-capitalize">not in cart</p>)} 
+                                    disabled={inCart? true: false}
+                                    onClick={
+                                        ()=>value.addCart(id)
+                                        // value.openModalPopup(id);
+                                        } 
+                                    >
+                                        {inCart? (<p className="mb-0 text-capitalize" disabled>{" "}in cart</p>):
+                                        (<p className="mb-0 text-capitalize p-2"><i className="fas fa-cart-plus"/> </p>)} 
                                 </button> 
                             </div>
                           )}

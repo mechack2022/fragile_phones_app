@@ -8,9 +8,26 @@ class ProductProvider extends Component {
         this.state={
             Products:[],
             ProductDetails:ProductDetails,
-            cart:[]
+            cart:[],
+            OpenModalPopup: false,
+            modalPopupDetails: ProductDetails
         }
     }
+     // open modalpopoup to true 
+     openModalPopup = ( id ) =>{
+        const modalProduct = this.getId(id);
+         this.setState(() =>  {
+           return { modalPopupDetails: modalProduct,
+                    OpenModalPopup:true}
+          }
+         ) 
+     }
+     // close modal popup
+     closeModalPopup = () =>{
+       this.setState(()=>{ 
+       return{OpenModalPopup:false}})
+     }
+
     // grab nested array of object to save the and set ot state origainal copy
     setProduct = () =>{
         let TempProducts = [];
@@ -60,10 +77,14 @@ class ProductProvider extends Component {
     render() {
         return (
             <ProductContext.Provider 
-                value={{...this.state, 
-                         handleProductDetails:this.handleProductDetails,
-                         addCart:this.addCart}}>
-                            {this.props.children}
+                value={{
+                    ...this.state, 
+                    handleProductDetails:this.handleProductDetails,
+                    addCart:this.addCart,
+                    openModalPopup:this.openModalPopup,
+                    closeModalPopup:this.closeModalPopup  }}  
+                        >
+                    {this.props.children}
             </ProductContext.Provider>     
         );
     }

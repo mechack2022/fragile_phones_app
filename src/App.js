@@ -7,6 +7,7 @@ import DefaultPage from './components/DefaultPage';
 import ProductList from './components/ProductList';
 import Details from './components/Details';
 import Cart from './components/Cart'
+import PopupModal from './components/popup_modal_product';
 
 
 class App extends Component {
@@ -17,10 +18,12 @@ class App extends Component {
             <Nav/>
             <Switch>
                <Route  exact path="/" component={ProductList}/>
+               <Route  path="/" component={Details}/>
                <Route path="/details" component={Details}/>
                <Route path="/cart" component={Cart}/>
                <Route component={DefaultPage}/>
             </Switch>
+            <PopupModal/>
          </Fragment>
 
         );
