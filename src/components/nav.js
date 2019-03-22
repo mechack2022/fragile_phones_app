@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { ButtonContainer, NavWrapper } from './Button';
-import {ProductConsumer} from './contextApi';
 
 export default class Nav extends Component {
   render() {
@@ -15,7 +14,7 @@ export default class Nav extends Component {
                 <li className="nav-link ml-5">Products</li>
             </Link>    
         </ul>
-        <Link to="/cart" className="ml-auto">
+        <Link to="/myCart" className="ml-auto">
             <ButtonContainer>
              <i className="fas fa-cart-plus"/>
              <span className="mx-2">my cart</span>
@@ -25,5 +24,3 @@ export default class Nav extends Component {
     )
   }
 }
-
-

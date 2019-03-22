@@ -6,9 +6,9 @@ import {ProductConsumer} from './contextApi'
 
 
 class Products extends Component {
+
     render() {
-       
-        const {id, title, price, img, inCart} = this.props.product
+        const {id, title, price, img, inCart} = this.props.product;
         return (
            <Fragment>
                 <ProductWrapper className="col-9 col-md-6 col-lg-3 mx-auto my-3">
@@ -17,7 +17,7 @@ class Products extends Component {
                           {value=>(
                             <div className="img-container p-5" 
                                 onClick={()=>value.handleProductDetails(id)}> 
-                                <Link to="./Details">
+                                <Link to="/details">
                                     <img src={img} height="100%" width="100%"
                                         alt="product"
                                         className="card-image-top"
@@ -26,9 +26,8 @@ class Products extends Component {
                                 {/* ternary button of incart and add to cart */}
                                 <button className="card-btn" 
                                     disabled={inCart? true: false}
-                                    onClick={
-                                        ()=>value.addCart(id)
-                                        // value.openModalPopup(id);
+                                    onClick={()=>
+                                         value.handleAddcart_openModalPopup(id)
                                         } 
                                     >
                                         {inCart? (<p className="mb-0 text-capitalize" disabled>{" "}in cart</p>):

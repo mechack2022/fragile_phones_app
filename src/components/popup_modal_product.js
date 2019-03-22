@@ -5,7 +5,6 @@ import {ProductConsumer} from './contextApi'
 import { Link } from 'react-router-dom';
 
 class PopupModal extends Component {
-
    render() {
       return (
          <ProductConsumer>
@@ -14,9 +13,6 @@ class PopupModal extends Component {
                const { id, price, title, img } = value.modalPopupDetails;
                const {openModalPopup, closeModalPopup} = value;
                if(!openModalPopup){
-                  return null
-                }
-                else{
                   return( 
                      <ModalPopupWrapper className="container">
                         <div className="row">
@@ -43,6 +39,9 @@ class PopupModal extends Component {
                         </div>
                      </ModalPopupWrapper>
                      );
+                }
+                else{
+                 return null
                }  
             }
           } 
