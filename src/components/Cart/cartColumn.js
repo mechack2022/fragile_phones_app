@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class CartColumn extends Component {
 
    render() {
-      return (
+      return ( 
          <div className="container-fluid text-center d-none d-lg-block ">
          <div className="row">
             <div className="col-10 col-md-2 col-lg-2 mx-auto text-uppercase">

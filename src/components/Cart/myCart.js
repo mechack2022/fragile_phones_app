@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import Title from '../Title';
 import { ProductConsumer } from '../contextApi'
 import CartColumn from './cartColumn';
-import EmptyCart from '../emptyCart';
 import CartListItem from './cartItemList';
+import EmptyCart from './emptyCart';
 
 
 class MyCart extends Component {
@@ -19,8 +19,7 @@ class MyCart extends Component {
                         <Fragment>
                          <Title name="Your" title="Cart"/>
                          <CartColumn/>
-                         <CartItem/>
-                         <CartListItem/>
+                         <CartListItem value={value}/>
                         </Fragment>
                      )
                   }
