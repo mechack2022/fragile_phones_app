@@ -14,7 +14,8 @@ class ProductProvider extends Component {
             subTotal:"",
             tax:"",
             total:"",
-            itemTotal:""
+            itemTotal:0,
+            count:0
         }
     }
       // grab nested array of object to save the and set ot state origainal copy
