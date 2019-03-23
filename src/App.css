@@ -30,3 +30,27 @@ body{
 .main-white{
     background:var(--mainWhite)
 }
+.btnIDC{
+     padding:0.5rem;
+     border: 2px solid var(--mainDark)!important;
+     border-radius: 0.3rem;
+     background:transparent;
+     color:var(--mainDark);
+}
+.btnIDC:hover{
+    border: 2px solid var(--mainWhite)!important;
+    background:var(--mainDark)!important;
+    color:#f3f3f3!important
+}
+.btndel{
+    padding:0.5rem;
+     border: 2px solid var(--mainDark)!important;
+     border-radius: 0.3rem;
+     background:var(--mainYellow)!important;
+     color:#f3f3f3!important;
+}
+.btndel:hover{ 
+     border: 2px solid var(--mainDark)!important;
+     background:var(--mainDark)!important;
+     color:#f3f3f3!important
+}
