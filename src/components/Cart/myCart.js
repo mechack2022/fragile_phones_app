@@ -4,6 +4,7 @@ import { ProductConsumer } from '../contextApi'
 import CartColumn from './cartColumn';
 import CartListItem from './cartItemList';
 import EmptyCart from './emptyCart';
+import CartTotal from './cartTotal';
 
 
 class MyCart extends Component {
@@ -20,6 +21,7 @@ class MyCart extends Component {
                          <Title name="Your" title="Cart"/>
                          <CartColumn/>
                          <CartListItem value={value}/>
+                         <CartTotal value={value}/>
                         </Fragment>
                      )
                   }

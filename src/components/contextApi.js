@@ -11,9 +11,9 @@ class ProductProvider extends Component {
             cart:ProductStore,
             OpenModalPopup: false,
             modalPopupDetails: ProductDetails,
-            subTotal:"",
-            tax:"",
-            total:"",
+            subTotal:49,
+            cartTax:0.09,
+            cartTotal:49.09,
             itemTotal:0,
             count:0
         }
@@ -88,11 +88,14 @@ class ProductProvider extends Component {
         
     }
     // increase product quatity
-    increaseQuality = (id) =>{
-        console.log("increasequality method")
+    increaseQuantity = (id) =>{
+       const {count} = this.state 
+       this.setState(() =>{
+           return count++
+       })
     }
     // decrease product quality
-    decreaseQuality = (id) =>{
+    decreaseQuantity = (id) =>{
      console.log("increasequality method")
     }
     // clear cart
@@ -113,8 +116,8 @@ class ProductProvider extends Component {
                     openModalPopup:this.openModalPopup,
                     closeModalPopup:this.closeModalPopup,
                     handleAddcart_openModalPopup:this.handleAddcart_openModalPopup,
-                    increaseQuality: this.increaseQuality,
-                    decreaseQuality:this.decreaseQuality,
+                    increaseQuantity: this.increaseQuantity,
+                    decreaseQuantity:this.decreaseQuantity,
                     removeProduct: this.removeProduct,
                     clearCart :this.clearCart
                       }}  
