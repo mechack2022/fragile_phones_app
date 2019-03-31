@@ -13,7 +13,7 @@ const ProductStore =[
             Battery: Up to 21 hours talk time" , Megapixels:12.0`,
         inCart:false,
         count:0,
-        total:0
+        total:10
     },
     {
         id:2,

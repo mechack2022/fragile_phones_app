@@ -54,3 +54,8 @@ body{
      background:var(--mainDark)!important;
      color:#f3f3f3!important
 }
+.cartDelIcon{
+    color:var(--mainYellow);
+    font-size:1.4rem;
+    cursor:pointer;
+}

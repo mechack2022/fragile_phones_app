@@ -8,14 +8,13 @@ class ProductProvider extends Component {
         this.state={
             Products:[],
             ProductDetails:ProductDetails,
-            cart:ProductStore,
+            cart:[],
             OpenModalPopup: false,
             modalPopupDetails: ProductDetails,
-            subTotal:49,
-            cartTax:0.09,
-            cartTotal:49.09,
-            itemTotal:0,
-            count:0
+            subTotal:0,
+            cartTax:0,
+            cartTotal:0,
+
         }
     }
       // grab nested array of object to save the and set ot state origainal copy
@@ -45,13 +44,15 @@ class ProductProvider extends Component {
        product.inCart = true;
        product.count = 1;
        const price= product.price;
-       product.price = price ;
+       product.total = price ;
        this.setState(()=>{
          return{
              Products:tempProducts,
              cart:[...this.state.cart, product]
          }  
-       },()=>console.log(this.state))
+       },()=> {this.totalCart();
+    })
+        
     }
     
     // handle product details and set 
@@ -73,7 +74,6 @@ class ProductProvider extends Component {
                 }
            }
          ) 
-         console.log(this.state.OpenModalPopup)
      }
      // close modal popup
      closeModalPopup = () =>{
@@ -87,24 +87,95 @@ class ProductProvider extends Component {
         this.addCart(id);
         
     }
+    //total cart
+    totalCart = () =>{
+        let subTotal = 0
+        this.state.cart.map( item => subTotal += item.total)
+        let tempTax = subTotal * 0.001
+        let Tax = parseFloat(tempTax.toFixed(2))
+        let total = subTotal + Tax
+        this.setState(()=>{
+            return { 
+                cartTotal:total, 
+                subTotal:subTotal, 
+                cartTax:Tax 
+             }
+        })
+    }
     // increase product quatity
     increaseQuantity = (id) =>{
-       const {count} = this.state 
-       this.setState(() =>{
-           return count++
-       })
+        let tempCart = [...this.state.cart];
+        const selectedProduct = tempCart.find( item => item.id === id)
+        const index = tempCart.indexOf(selectedProduct)
+        const product = tempCart[index];
+        product.count = product.count + 1;
+        product.total = product.count * product.price;
+   
+        this.setState(()=>{
+            return{
+                cart:[...tempCart]
+            }
+        }, ()=>{
+            this.totalCart();
+        })
+      
     }
-    // decrease product quality
+    // decrease product quantity
     decreaseQuantity = (id) =>{
-     console.log("increasequality method")
+     let tempCart = [...this.state.cart];
+     const selectedProduct = tempCart.find( item => item.id === id)
+     const index = tempCart.indexOf(selectedProduct)
+     const product = tempCart[index];
+     product.count = product.count - 1;
+     if(product.count === 0){
+        this.removeProduct(id);
+     }else{
+        product.total = product.count * product.price;
+
+     this.setState(()=>{
+         return{
+             cart:[...tempCart]
+         }
+     }, ()=>{
+         this.totalCart();
+     })
+     
+     }
+     
     }
     // clear cart
     clearCart = () => {
-       console.log("clear cart") 
+       this.setState(()=>{
+           return{ cart:[]}
+       },()=>{
+        //  this help such that every time the cart is empty we should be 
+        //  able to add the cart product again and also set the default value
+        //  of the storeProduct  
+        this.setProduct();
+        this.totalCart()
+          }
+        )
     }
     // removed product from cart
-    removeProduct = () =>{
-      console.log("romove product method")   
+    removeProduct = (id) =>{
+      console.log("remove product function clicked")
+      let tempCart = [...this.state.cart];
+      let tempProduct = [...this.state.Products]
+      tempCart = tempCart.filter( item => item.id !== id);
+    //   get the index of the product through it id  to set some values 
+    const ProductIndex = tempProduct.indexOf(this.getId(id))
+    let removedProduct = tempProduct[ProductIndex];
+    removedProduct.inCart=false;
+    removedProduct.count=0;
+    removedProduct.total=0;
+    this.setState(()=>{
+        return{
+            cart:[...tempCart],
+            Products:[...tempProduct]
+        }
+       }, () =>{
+        this.totalCart();
+     })
     }
     render() {
         return (

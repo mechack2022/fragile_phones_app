@@ -28,12 +28,13 @@ export default function CartItem({value, item}){
            </div>
         </div>
         <div className="col-10 col-md-2 my-2 col-lg-2 mx-auto">
-           <div className="btn btndel">del</div>
+           <div className="cartDelIcon" onClick={()=>removeProduct(id)}>
+           <i className="fas fa-trash"></i></div>
         </div>
         <div className="col-10 col-md-2 my-2 col-lg-2 mx-auto">
-          <strong>Item total :{itemTotal}</strong>
+          <strong>Item total : # {price}</strong>
         </div>
        </div>
   )
 }
-const incDecCountButton = styled.div``;
+
