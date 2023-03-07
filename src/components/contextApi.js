@@ -44,7 +44,7 @@ class ProductProvider extends Component {
        product.inCart = true;
        product.count = 1;
        const price= product.price;
-       product.total = price ;
+       product.total = price ; 
        this.setState(()=>{
          return{
              Products:tempProducts,
